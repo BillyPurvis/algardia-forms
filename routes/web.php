@@ -15,6 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', function () {
-    return '<div id="app"></div>';
-});
+// Auth Routes
+Auth::routes();
+Route::get('/logout', 'HomeController@logout')->name('logout');
+
+// Profile routes
+Route::get('/profile', 'HomeController@index')->name('home');
+
+
+
+
+
+
+
