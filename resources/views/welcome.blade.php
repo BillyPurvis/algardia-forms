@@ -10,6 +10,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <script>
@@ -74,7 +77,8 @@
     </head>
     <body>
     <div id="app">
-        <example></example>
+
+        <user_dashboard logged_user="@if (!empty(Auth::user())) Welcome, {{ Auth::user()->name }} @else Sign in to access your account @endif"></user_dashboard>
     </div>
     </body>
     <script src="{{ asset('/js/app.js') }}"></script>

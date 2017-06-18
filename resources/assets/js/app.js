@@ -15,7 +15,10 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+// User areas
+Vue.component('user_dashboard', require('./components/admin/app-user-dashboard.vue'), {
+    props: ['logged_user']
+});
 
 const app = new Vue({
     el: '#app'

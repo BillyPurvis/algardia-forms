@@ -11,16 +11,39 @@
 |
 */
 
-Route::get('/', function () {
+use Illuminate\Support\Facades\Auth;
+
+Route::any('{slug}', function() {
     return view('welcome');
-});
+})->where('slug', '^((?!api).)*');
 
 // Auth Routes
 Auth::routes();
-Route::get('/logout', 'HomeController@logout')->name('logout');
 
-// Profile routes
-Route::get('/profile', 'HomeController@index')->name('home');
+Route::get('api/logout', [
+    'as' => 'logout',
+    'uses' => 'Auth\LoginController@logout'
+]);
+
+Route::any('api/login-form', [
+    'as' => 'login-form',
+    'uses' => 'Auth\LoginController@showLoginForm'
+]);
+
+Route::any('api/login', [
+    'as' => 'login',
+    'uses' => 'Auth\LoginController@login'
+]);
+Route::any('api/register', [
+    'as' => 'register',
+    'uses' => 'Auth\RegisterController@showRegistrationForm'
+]);
+
+Route::any('api/login-form', [
+    'uses' => 'Auth\LoginController@showLoginForm'
+]);
+
+
 
 
 
