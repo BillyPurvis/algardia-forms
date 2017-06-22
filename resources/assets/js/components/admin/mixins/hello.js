@@ -1,3 +1,10 @@
-/**
- * Created by Billy on 21/06/2017.
- */
+module.exports  = {
+        created: function () {
+            this.hello()
+        },
+        methods: {
+            hello: function () {
+                console.log('hello from mixin!')
+            }
+}
+}

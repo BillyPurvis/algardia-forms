@@ -26,8 +26,6 @@
             html, body {
                 background-color: #fff;
                 color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
                 height: 100vh;
                 margin: 0;
             }
@@ -77,8 +75,9 @@
     </head>
     <body>
     <div id="app">
+        <user_dashboard csrf_token="{{ csrf_token() }}" logged_user="@if (!empty(Auth::user())) Welcome, {{ Auth::user()->name }} @else Sign in to access your account @endif"></user_dashboard>
 
-        <user_dashboard logged_user="@if (!empty(Auth::user())) Welcome, {{ Auth::user()->name }} @else Sign in to access your account @endif"></user_dashboard>
+        <user_login csrf_token="{{ csrf_token() }}"></user_login>
     </div>
     </body>
     <script src="{{ asset('/js/app.js') }}"></script>
