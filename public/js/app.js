@@ -766,8 +766,12 @@ module.exports = g;
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_admin_mixins_hello_js__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_admin_mixins_hello_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_admin_mixins_hello_js__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -785,13 +789,19 @@ window.Vue = __webpack_require__(37);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
 // User areas
 Vue.component('user_dashboard', __webpack_require__(34), {
-  props: ['logged_user']
+    props: ['logged_user', 'csrf_token', 'is_logged_in'],
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__components_admin_mixins_hello_js___default.a]
+});
+Vue.component('user_login', __webpack_require__(51), {
+    props: ['csrf_token'],
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__components_admin_mixins_hello_js___default.a]
 });
 
 var app = new Vue({
-  el: '#app'
+    el: '#app'
 });
 
 /***/ }),
@@ -1647,6 +1657,37 @@ module.exports = function spread(callback) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1666,13 +1707,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
     mounted: function mounted() {
         console.log('Component mounted.');
     },
 
-    props: ['logged_user']
-});
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js___default.a],
+    props: ['logged_user', 'csrf_token'],
+    methods: {
+        userIsLogged: function userIsLogged() {
+            if (this.is_logged_in !== '') {
+                console.log('blue');
+            }
+        }
+    }
+}, 'mounted', function mounted() {
+    this.userIsLogged();
+}));
 
 /***/ }),
 /* 29 */
@@ -31763,9 +31816,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel panel-default"
   }, [_c('div', {
     staticClass: "panel-heading"
-  }, [_c('strong', [_vm._v(_vm._s(_vm.logged_user))])]), _vm._v(" "), _c('div', {
-    staticClass: "panel-body"
-  })])])])])
+  }, [_c('strong', [_vm._v(_vm._s(_vm.logged_user))])])])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -41509,6 +41560,250 @@ module.exports = function(module) {
 __webpack_require__(8);
 module.exports = __webpack_require__(9);
 
+
+/***/ }),
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */
+/***/ (function(module, exports) {
+
+module.exports = {
+    created: function created() {
+        this.hello();
+    },
+    methods: {
+        hello: function hello() {
+            console.log('hello from mixin!');
+        }
+    }
+};
+
+/***/ }),
+/* 49 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    },
+
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js___default.a],
+    props: ['logged_user', 'csrf_token'],
+    methods: {
+        userIsLogged: function userIsLogged() {
+            if (this.is_logged_in !== '') {
+                console.log('blue');
+            }
+        }
+    }
+}, 'mounted', function mounted() {
+    this.userIsLogged();
+}));
+
+/***/ }),
+/* 50 */,
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(35)(
+  /* script */
+  __webpack_require__(49),
+  /* template */
+  __webpack_require__(52),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/Billy/Documents/git/algardia-forms/resources/assets/js/components/admin/app-user-login-form.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] app-user-login-form.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-43c019a9", Component.options)
+  } else {
+    hotAPI.reload("data-v-43c019a9", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('form', {
+    staticClass: "form-horizontal col-xs-6 col-xs-offset-3",
+    attrs: {
+      "role": "form",
+      "method": "POST",
+      "action": "/api/login"
+    }
+  }, [_c('img', {
+    attrs: {
+      "src": __webpack_require__(53),
+      "alt": "Close Icon"
+    }
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "_token"
+    },
+    domProps: {
+      "value": _vm.csrf_token
+    }
+  }), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "form-group form-title"
+  }, [_c('h1', [_vm._v("Login")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "email"
+    }
+  }, [_vm._v("E-Mail Address")]), _vm._v(" "), _c('div', {
+    staticClass: "input-wrap"
+  }, [_c('input', {
+    staticClass: "form-control",
+    attrs: {
+      "id": "email",
+      "type": "email",
+      "placeholder": "email@domain.co.uk",
+      "name": "email",
+      "value": "",
+      "required": "",
+      "autofocus": ""
+    }
+  })])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "password"
+    }
+  }, [_vm._v("Password")]), _vm._v(" "), _c('div', {
+    staticClass: "input-wrap"
+  }, [_c('input', {
+    staticClass: "form-control",
+    attrs: {
+      "id": "password",
+      "type": "password",
+      "placeholder": "Password",
+      "name": "password",
+      "required": ""
+    }
+  })]), _vm._v(" "), _c('span', [_c('a', {
+    attrs: {
+      "href": ""
+    }
+  }, [_vm._v("Forgotten Password?")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "form-group form-controls"
+  }, [_c('div', {
+    staticClass: "btn-wrap active-btn-wrap pull-left"
+  }, [_c('button', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "type": "submit"
+    }
+  }, [_vm._v("\n                        Login\n                     ")])]), _vm._v(" "), _c('div', {
+    staticClass: "btn-wrap in-active-btn-wrap pull-right"
+  }, [_c('button', {
+    staticClass: "btn btn-primary"
+  }, [_vm._v("\n                        Sign Up\n                     ")])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-43c019a9", module.exports)
+  }
+}
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/close-icon.png?946ecce8bea6ebbbb93d3cff52989325";
 
 /***/ })
 /******/ ]);
