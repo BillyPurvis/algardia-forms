@@ -100,10 +100,6 @@ body {
     border-radius: 10px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-
-    &:hover {
-
-    }
   }
   .btn-wrap {
     padding: 2px;
@@ -111,6 +107,12 @@ body {
   }
   .active-btn-wrap {
     @extend .gradient;
+    &:hover .btn {
+      background: darken($navy, 5%);
+    }
+    .btn {
+      transition: all .3s ease;
+    }
   }
   .in-active-btn-wrap {
     &:hover {
