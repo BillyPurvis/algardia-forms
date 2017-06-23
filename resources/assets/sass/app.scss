@@ -33,7 +33,7 @@ body {
 
   opacity: 0;
   @include animation(slideFadeInForm 1s);
-  -webkit-animation-delay: .5s;
+  -webkit-animation-delay: .15s;
   animation-fill-mode: forwards;
   a {
     cursor: pointer;

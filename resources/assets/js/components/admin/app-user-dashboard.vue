@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-12 user-panel">
                 <div class="col-sm-8">
-                    <h1 class="user-welcome">Welcome, {{ welcomeResponse }}!</h1>
+                    <h1 class="user-welcome" v-if="userLoggedIn">Welcome, {{ welcomeResponse }}!</h1>
                 </div>
                 <div class="col-sm-4" v-if="userLoggedIn">
                     <a class="pull-right dash-btn" href="/api/logout">Logout</a>

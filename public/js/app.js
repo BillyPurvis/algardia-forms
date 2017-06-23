@@ -31767,9 +31767,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-sm-12 user-panel"
   }, [_c('div', {
     staticClass: "col-sm-8"
-  }, [_c('h1', {
+  }, [(_vm.userLoggedIn) ? _c('h1', {
     staticClass: "user-welcome"
-  }, [_vm._v("Welcome, " + _vm._s(_vm.welcomeResponse) + "!")])]), _vm._v(" "), (_vm.userLoggedIn) ? _c('div', {
+  }, [_vm._v("Welcome, " + _vm._s(_vm.welcomeResponse) + "!")]) : _vm._e()]), _vm._v(" "), (_vm.userLoggedIn) ? _c('div', {
     staticClass: "col-sm-4"
   }, [_c('a', {
     staticClass: "pull-right dash-btn",
