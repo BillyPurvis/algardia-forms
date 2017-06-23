@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-sm-12 user-panel">
                 <div class="col-sm-8">
-                    <h1>Welcome, {{ welcomeResponse }}!</h1>
+                    <h1 class="user-welcome">Welcome, {{ welcomeResponse }}!</h1>
                 </div>
                 <div class="col-sm-4" v-if="userLoggedIn">
-                    <a class="pull-right" href="/api/logout">Logout</a>
+                    <a class="pull-right dash-btn" href="/api/logout">Logout</a>
                 </div>
             </div>
         </div>
@@ -14,10 +14,10 @@
 </template>
 
 <script>
-    import formAnimations from '../admin/mixins/hello.js';
+    import userMixins from '../admin/mixins/user-mixins.js';
 
     export default {
-        mixins: [ formAnimations ],
+        mixins: [ userMixins ],
         props: [
             'logged_user',
         ],

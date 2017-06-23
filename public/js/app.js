@@ -769,9 +769,6 @@ module.exports = g;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_admin_mixins_hello_js__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_admin_mixins_hello_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_admin_mixins_hello_js__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -789,15 +786,12 @@ window.Vue = __webpack_require__(37);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
 // User areas
 Vue.component('user_dashboard', __webpack_require__(34), {
-    props: ['logged_user', 'csrf_token', 'is_logged_in'],
-    mixins: [__WEBPACK_IMPORTED_MODULE_0__components_admin_mixins_hello_js___default.a]
+    props: ['logged_user', 'csrf_token', 'is_logged_in']
 });
 Vue.component('user_login', __webpack_require__(51), {
-    props: ['csrf_token'],
-    mixins: [__WEBPACK_IMPORTED_MODULE_0__components_admin_mixins_hello_js___default.a]
+    props: ['csrf_token']
 });
 
 var app = new Vue({
@@ -1657,8 +1651,7 @@ module.exports = function spread(callback) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_mixins_user_mixins_js__ = __webpack_require__(62);
 //
 //
 //
@@ -1678,7 +1671,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mixins: [__WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js___default.a],
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__admin_mixins_user_mixins_js__["a" /* default */]],
     props: ['logged_user'],
     mounted: function mounted() {}
 });
@@ -31774,10 +31767,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-sm-12 user-panel"
   }, [_c('div', {
     staticClass: "col-sm-8"
-  }, [_c('h1', [_vm._v("Welcome, " + _vm._s(_vm.welcomeResponse) + "!")])]), _vm._v(" "), (_vm.userLoggedIn) ? _c('div', {
+  }, [_c('h1', {
+    staticClass: "user-welcome"
+  }, [_vm._v("Welcome, " + _vm._s(_vm.welcomeResponse) + "!")])]), _vm._v(" "), (_vm.userLoggedIn) ? _c('div', {
     staticClass: "col-sm-4"
   }, [_c('a', {
-    staticClass: "pull-right",
+    staticClass: "pull-right dash-btn",
     attrs: {
       "href": "/api/logout"
     }
@@ -41590,48 +41585,13 @@ module.exports = function() {
 /* 45 */,
 /* 46 */,
 /* 47 */,
-/* 48 */
-/***/ (function(module, exports) {
-
-module.exports = {
-    data: function data() {
-        return {
-            userLoggedIn: this.isUserLoggedIn(),
-            welcomeResponse: this.stripSpaces()
-        };
-    },
-
-    created: function created() {
-        this.setWelcomeMessage();
-        this.stripSpaces();
-        this.isUserLoggedIn();
-    },
-    methods: {
-        setWelcomeMessage: function setWelcomeMessage() {
-            if (!this.isUserLoggedIn()) {
-                this.welcomeResponse = 'Please Sign in';
-            }
-        },
-        stripSpaces: function stripSpaces() {
-            return this.logged_user.replace(/\s+/g, '');
-        },
-        isUserLoggedIn: function isUserLoggedIn() {
-            if (this.logged_user.length <= 0) {
-                return false;
-            }
-            return true;
-        }
-    }
-};
-
-/***/ }),
+/* 48 */,
 /* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__admin_mixins_user_mixins_js__ = __webpack_require__(62);
 //
 //
 //
@@ -41687,7 +41647,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         console.log('Component mounted.');
     },
 
-    mixins: [__WEBPACK_IMPORTED_MODULE_0__admin_mixins_hello_js___default.a],
+    mixins: [__WEBPACK_IMPORTED_MODULE_0__admin_mixins_user_mixins_js__["a" /* default */]],
     props: ['logged_user', 'csrf_token']
 });
 
@@ -42159,6 +42119,39 @@ if(false) {
  // When the module is disposed, remove the <style> tags
  module.hot.dispose(function() { update(); });
 }
+
+/***/ }),
+/* 62 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+    data: function data() {
+        return {
+            userLoggedIn: this.isUserLoggedIn(),
+            welcomeResponse: this.stripSpaces()
+        };
+    },
+
+    created: function created() {
+        this.setWelcomeMessage();
+        this.stripSpaces();
+        this.isUserLoggedIn();
+    },
+    methods: {
+        setWelcomeMessage: function setWelcomeMessage() {
+            if (!this.isUserLoggedIn()) {
+                this.welcomeResponse = 'Please Sign in';
+            }
+        },
+        stripSpaces: function stripSpaces() {
+            return this.logged_user.replace(/\s+/g, '');
+        },
+        isUserLoggedIn: function isUserLoggedIn() {
+            return this.logged_user.length > 0;
+        }
+    }
+});
 
 /***/ })
 /******/ ]);

@@ -46,13 +46,13 @@
 </template>
 
 <script>
-    import formAnimations from '../admin/mixins/hello.js';
+    import userMixins from '../admin/mixins/user-mixins.js';
 
     export default {
         mounted() {
             console.log('Component mounted.')
         },
-        mixins: [ formAnimations ],
+        mixins: [ userMixins ], 
         props: [
             'logged_user',
             'csrf_token'

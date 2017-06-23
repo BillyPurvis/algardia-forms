@@ -1,4 +1,4 @@
-module.exports  = {
+export default {
     data() {
         return {
             userLoggedIn: this.isUserLoggedIn(),
@@ -20,10 +20,7 @@ module.exports  = {
             return this.logged_user.replace(/\s+/g, '');
         },
         isUserLoggedIn: function () {
-            if(this.logged_user.length <= 0) {
-                return false;
-            }
-            return true;
+            return this.logged_user.length > 0;
         }
     }
 };

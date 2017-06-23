@@ -15,21 +15,18 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import myMixin from './components/admin/mixins/hello.js';
 // User areas
 Vue.component('user_dashboard', require('./components/admin/app-user-dashboard.vue'), {
     props: [
         'logged_user',
         'csrf_token',
         'is_logged_in'
-    ],
-    mixins: [myMixin]
+    ]
 });
 Vue.component('user_login', require('./components/admin/app-user-login-form.vue'), {
     props: [
         'csrf_token'
-    ],
-    mixins: [myMixin]
+    ]
 });
 
 const app = new Vue({
