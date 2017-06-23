@@ -8,6 +8,8 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Animations
+@import "animations";
 html {
   font-family: "Montserrat";
 }
@@ -28,6 +30,11 @@ body {
   max-width: 514px;
   padding: 45px 50px 65px;
   background-color: $navy;
+
+  opacity: 0;
+  @include animation(slideFadeInForm 1s);
+  -webkit-animation-delay: .5s;
+  animation-fill-mode: forwards;
   a {
     cursor: pointer;
   }
@@ -126,4 +133,17 @@ body {
       color: rgba(192, 199, 203, 0.15);
     }
   }
+}
+
+// Dashboard
+.user-welcome {
+  opacity: 0;
+  @include animation(slideFadeIn 1s);
+  animation-fill-mode: forwards;
+}
+.dash-btn {
+  opacity: 0;
+  @include animation(fadeIn 1s);
+  -webkit-animation-delay: .5s;
+  animation-fill-mode: forwards;
 }
