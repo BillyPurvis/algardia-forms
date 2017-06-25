@@ -1159,7 +1159,11 @@ Vue.component('user_dashboard', __webpack_require__(44), {
 Vue.component('user_login', __webpack_require__(45), {
     props: ['csrf_token']
 });
+Vue.component('userProfile', __webpack_require__(66));
+
+// Widgets
 Vue.component('weather_widget', __webpack_require__(46));
+
 var app = new Vue({
     el: '#app'
 });
@@ -4631,7 +4635,7 @@ if (typeof jQuery === 'undefined') {
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)();
-exports.push([module.i, "\nh1[data-v-122c3fa3] {\n  color: #fff;\n  margin: 0;\n  font-weight: 100;\n  font-family: \"Lato\", sans-serif;\n}\na[data-v-122c3fa3] {\n  color: #fff;\n  padding: 5px 20px;\n  border-radius: 7px;\n  font-family: \"Lato\", sans-serif;\n  display: inline-block;\n  text-decoration: none;\n  border: 2px solid #fff;\n  transition: all .3s ease;\n}\na[data-v-122c3fa3]:hover {\n    background: rgba(255, 255, 255, 0.4);\n}\n.col-sm-8[data-v-122c3fa3] {\n  padding: 20px;\n}\n.col-sm-4 a[data-v-122c3fa3] {\n  margin-top: 28px;\n}\n", ""]);
+exports.push([module.i, "\n.col-sm-8[data-v-122c3fa3] {\n  padding: 20px;\n}\n.col-sm-4 a[data-v-122c3fa3] {\n  margin-top: 28px;\n}\n", ""]);
 
 /***/ }),
 /* 38 */
@@ -32315,7 +32319,7 @@ module.exports = Component.exports
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container"
+    staticClass: "container user-area"
   }, [_c('div', {
     staticClass: "row"
   }, [_c('div', {
@@ -32331,13 +32335,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "href": "/api/logout"
     }
-  }, [_vm._v("Logout")])]) : _vm._e()])]), _vm._v(" "), _c('div', {
-    staticClass: "row"
+  }, [_vm._v("Logout")])]) : _vm._e()])]), _vm._v(" "), (_vm.userLoggedIn) ? _c('div', {
+    staticClass: "row user-area-inner"
   }, [_c('div', {
     staticClass: "col-sm-8 panel"
-  }), _vm._v(" "), _c('div', {
+  }, [_c('userProfile')], 1), _vm._v(" "), _c('div', {
     staticClass: "col-sm-4"
-  }, [_c('weather_widget')], 1)])])
+  }, [_c('weather_widget')], 1)]) : _vm._e()])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -32455,7 +32459,7 @@ if (false) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "widget"
+    staticClass: "widget panel"
   }, [_c('div', {
     staticClass: "widget-inner"
   }, [_c('img', {
@@ -42318,6 +42322,134 @@ module.exports = function(module) {
 __webpack_require__(12);
 module.exports = __webpack_require__(13);
 
+
+/***/ }),
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {}
+});
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)();
+exports.push([module.i, "", ""]);
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(68)
+
+var Component = __webpack_require__(3)(
+  /* script */
+  __webpack_require__(64),
+  /* template */
+  __webpack_require__(67),
+  /* scopeId */
+  "data-v-bc2cb902",
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/Billy/Documents/git/algardia-forms/resources/assets/js/components/admin/app-user-dashboard-profile.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] app-user-dashboard-profile.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-bc2cb902", Component.options)
+  } else {
+    hotAPI.reload("data-v-bc2cb902", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _vm._m(0)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "user-area"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-sm-12"
+  }, [_c('h2', [_vm._v("London, UK")]), _vm._v(" "), _c('div', {
+    staticClass: "gradient-divider"
+  }), _vm._v(" "), _c('p', [_vm._v("I'm a front end developer, living in London. I work on an array of projects, from PHP, Javascript, GSAP and WordPress.")]), _vm._v(" "), _c('p', [_vm._v("html5, css3, gsap, Affinity Designer, Wordpress, Javascript, jQuery")])])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-bc2cb902", module.exports)
+  }
+}
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(65);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(4)("05007975", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-bc2cb902\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./app-user-dashboard-profile.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-bc2cb902\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./app-user-dashboard-profile.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
 
 /***/ })
 /******/ ]);

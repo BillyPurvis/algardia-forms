@@ -1,5 +1,5 @@
 <template>
-    <div class="widget">
+    <div class="widget panel">
         <div class="widget-inner">
             <img :src="iconURL" alt="" />
             <h6>Temp: {{ tempC }}</h6>
