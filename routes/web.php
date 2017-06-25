@@ -11,6 +11,7 @@
 |
 */
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 Route::any('{slug}', function() {
@@ -43,6 +44,19 @@ Route::any('api/login-form', [
     'uses' => 'Auth\LoginController@showLoginForm'
 ]);
 
+Route::get('api/weather', function(Request $request) {
+
+    // Geo Data
+    $latitude = $request->lat;
+    $longitude= $request->long;
+
+    // Request Weather Data
+    $json_data = file_get_contents("http://api.wunderground.com/api/0e5af2c42173a4e4/geolookup/conditions/q/" .
+        $latitude . "," . $longitude . ".json");
+    $parsed_json = json_decode($json_data);
+
+    return response()->json($parsed_json);
+});
 
 
 

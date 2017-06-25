@@ -10,6 +10,14 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-8 panel">
+
+            </div>
+            <div class="col-sm-4">
+                <weather_widget></weather_widget>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -22,8 +30,8 @@
             'logged_user',
         ],
         mounted() {
-
-        },
+            // TODO Ask Shinttapix for Vue Help about child components
+        }
     }
 </script>
 

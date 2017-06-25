@@ -28,7 +28,7 @@ Vue.component('user_login', require('./components/admin/app-user-login-form.vue'
         'csrf_token'
     ]
 });
-
+Vue.component('weather_widget', require('./components/admin/widgets/app-weather-widget.vue'));
 const app = new Vue({
-    el: '#app'
+    el: '#app',
 });
