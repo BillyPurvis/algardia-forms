@@ -2,7 +2,7 @@
     <div class="user-area">
         <div class="row">
            <div class="col-sm-12">
-               <h2>London, UK</h2>
+               <h2>{{ formattedUserData.city }}, {{ formattedUserData.country }}</h2>
                <div class="gradient-divider"></div>
                <p>{{ formattedUserData.bio }}</p>
                <p>{{ formattedUserData.skills }}</p>
