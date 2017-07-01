@@ -80,5 +80,5 @@
         <user_login logged_user="@if (!empty(Auth::user())) {{ Auth::user()->name}} @endif" csrf_token="{{ csrf_token() }}"></user_login>
     </div>
     </body>
-    <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="{{ asset('/js/app.js', Request::secure()) }}"></script>
 </html>
