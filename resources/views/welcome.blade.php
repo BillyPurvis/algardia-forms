@@ -74,8 +74,9 @@
         </style>
     </head>
     <body>
+
     <div id="app">
-        <user_dashboard logged_user="@if (!empty(Auth::user())) {{ Auth::user()->name}} @endif"></user_dashboard>
+        <user_dashboard user_data="{{ json_encode(Auth::user()) }}" logged_user="@if (!empty(Auth::user())) {{ Auth::user()->name}} @endif"></user_dashboard>
         <user_login logged_user="@if (!empty(Auth::user())) {{ Auth::user()->name}} @endif" csrf_token="{{ csrf_token() }}"></user_login>
     </div>
     </body>

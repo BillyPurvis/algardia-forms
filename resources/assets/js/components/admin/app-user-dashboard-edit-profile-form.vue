@@ -1,40 +1,62 @@
 <template>
     <div class="container">
         <div class="row">
-           <form v-if="!userLoggedIn" class="form-horizontal col-xs-6 col-xs-offset-3" role="form" method="POST" action="/api/login">
+           <form v-show="showForm" id="profile-edit-form" class="form-horizontal" role="form" method="POST" action="/api/login">
                <div class="form-group form-title">
-                    <h1>Login</h1>
+                    <h1>Edit Profile</h1>
                 </div>
                 <!-- CSRF TOKEN -->
-                <input type="hidden" name="_token" :value="csrf_token">
+                <input type="hidden" name="_token">
 
-                <div class="form-group">
-                    <label for="email">E-Mail Address</label>
+               <div class="form-group col-md-6">
+                   <label for="name">Name</label>
+                   <div class="input-wrap">
+                       <input id="name" type="text" class="form-control" placeholder="" name="name" value=""  autofocus>
+                   </div>
+               </div>
+
+               <div class="form-group col-md-6">
+                   <label for="city">City</label>
+
+                   <div class="input-wrap">
+                       <input id="city" type="text" class="form-control" placeholder="" name="city" value=""  autofocus>
+                   </div>
+               </div>
+
+               <div class="form-group col-md-6">
+                   <label for="country">Country</label>
+
+                   <div class="input-wrap">
+                       <input id="country" type="text" class="form-control" placeholder="" name="country" value=""  autofocus>
+                   </div>
+               </div>
+
+               <div class="form-group col-md-6">
+                   <label for="skills">skills</label>
+
+                   <div class="input-wrap">
+                       <input id="skills" type="text" class="form-control" placeholder="" name="skills" value=""  autofocus>
+                   </div>
+               </div>
+
+                <div class="form-group col-sm-12">
+                    <label for="bio">Bio</label>
 
                     <div class="input-wrap">
-                        <input id="email" type="email" class="form-control" placeholder="email@domain.co.uk" name="email" value="" required autofocus>
+                        <textarea name="bio" id="bio" class="form-control" autofocus></textarea>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="password">Password</label>
-
-                    <div class="input-wrap">
-                        <input id="password" type="password" class="form-control" placeholder="Password" name="password" required>
-                    </div>
-                    <span><a href="">Forgotten Password?</a></span>
-                </div>
-
-                <div class="form-group form-controls">
+                <div class="form-group form-controls col-sm-12">
                         <div class="btn-wrap active-btn-wrap pull-left">
                         <button type="submit" class="btn btn-primary">
-                            Login
+                            Update
                          </button>
                         </div>
 
                     <div class="btn-wrap in-active-btn-wrap pull-right">
-                        <button class="btn btn-primary">
-                            Sign Up
+                        <button class="btn btn-primary btn-cancel" @click.prevent="toggleForm">
+                            Cancel
                          </button>
                     </div>
                 </div>
@@ -45,23 +67,30 @@
 </template>
 
 <script>
-    import userMixins from '../admin/mixins/user-mixins.js';
-
+ import formMixins from '../admin/mixins/form-mixins';
     export default {
         mounted() {
-            console.log('Component mounted.')
         },
-        mixins: [ userMixins ], 
-        props: [
-            'logged_user',
-            'csrf_token'
-        ]
+        data() {
+            return {
+//                showForm: false
+            }
+        },
+        mixins: [formMixins],
+        // TODO Create new form transition for mixin
+        methods: {
+
+        }
     }
 </script>
 
 <style lang="scss">
-    form {
-        top: 120px;
-
+    #profile-edit-form {
+       z-index: 2;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        max-width: 50%;
+        position: absolute;
     }
 </style>

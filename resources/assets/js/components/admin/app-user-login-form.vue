@@ -2,7 +2,6 @@
     <div class="container">
         <div class="row">
            <form v-if="!userLoggedIn" class="form-horizontal col-xs-6 col-xs-offset-3" role="form" method="POST" action="/api/login">
-               <img src="../../../images/close-icon.png" alt="Close Icon">
                <div class="form-group form-title">
                     <h1>Login</h1>
                 </div>

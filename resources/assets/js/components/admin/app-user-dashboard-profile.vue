@@ -4,20 +4,29 @@
            <div class="col-sm-12">
                <h2>London, UK</h2>
                <div class="gradient-divider"></div>
-               <p>I'm a front end developer, living in London. I work on an array of projects, from PHP, Javascript, GSAP and WordPress.</p>
-
-               <p>html5, css3, gsap, Affinity Designer, Wordpress, Javascript, jQuery</p>
+               <p>{{ formattedUserData.bio }}</p>
+               <p>{{ formattedUserData.skills }}</p>
+               <button class="pull-right btn-dash btn-gradient" @click.prevent="toggleForm">Edit</button>
            </div>
         </div>
     </div>
 </template>
 
 <script>
+    import formMixins from '../admin/mixins/form-mixins';
     export default {
+        data() {
+            return {
+            }
+        },
+        mixins: [formMixins],
         mounted() {
-        }
+        },
+        props: [
+            'formattedUserData'
+        ]
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 </style>

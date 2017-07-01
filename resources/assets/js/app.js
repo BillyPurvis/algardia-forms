@@ -23,15 +23,25 @@ Vue.component('user_dashboard', require('./components/admin/app-user-dashboard.v
         'is_logged_in'
     ]
 });
+Vue.component('user_dashboard_edit_form', require('./components/admin/app-user-dashboard-edit-profile-form.vue'), {
+    props: [
+        'csrf_token'
+    ]
+});
 Vue.component('user_login', require('./components/admin/app-user-login-form.vue'), {
     props: [
         'csrf_token'
     ]
 });
-Vue.component('userProfile', require('./components/admin/app-user-dashboard-profile.vue'));
+Vue.component('userProfile', require('./components/admin/app-user-dashboard-profile.vue'), {
+    props: [
+        'formattedUserData'
+    ]
+});
 
 // Widgets
 Vue.component('weather_widget', require('./components/admin/widgets/app-weather-widget.vue'));
+
 
 const app = new Vue({
     el: '#app',

@@ -11,8 +11,9 @@
                 </div>
             </div>
             <div class="row user-area-inner" v-if="userLoggedIn">
+                <user_dashboard_edit_form></user_dashboard_edit_form>
                 <div class="col-sm-8 panel">
-                    <userProfile></userProfile>
+                    <userProfile :formattedUserData="formattedUserData"></userProfile>
                 </div>
                 <div class="col-sm-4">
                     <weather_widget></weather_widget>
@@ -23,14 +24,27 @@
 
 <script>
     import userMixins from '../admin/mixins/user-mixins.js';
+    import formMixins from '../admin/mixins/form-mixins';
 
     export default {
-        mixins: [ userMixins ],
+        mixins: [ userMixins, formMixins ],
         props: [
             'logged_user',
+            'user_data'
         ],
+        data() {
+            return{
+                formattedUserData: {}
+            }
+        },
         mounted() {
             // TODO Ask Shinttapix for Vue Help about child components
+            this.toJSON();
+        },
+        methods: {
+            toJSON: function () {
+                this.formattedUserData = JSON.parse(this.user_data);
+            }
         }
     }
 </script>
