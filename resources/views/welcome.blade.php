@@ -74,10 +74,10 @@
         </style>
     </head>
     <body>
-    <div id="app">
-        <user_dashboard csrf_token="{{ csrf_token() }}" logged_user="@if (!empty(Auth::user())) Welcome, {{ Auth::user()->name }} @else Sign in to access your account @endif"></user_dashboard>
 
-        <user_login csrf_token="{{ csrf_token() }}"></user_login>
+    <div id="app">
+        <user_dashboard user_data="{{ json_encode(Auth::user()) }}" logged_user="@if (!empty(Auth::user())) {{ Auth::user()->name}} @endif"></user_dashboard>
+        <user_login logged_user="@if (!empty(Auth::user())) {{ Auth::user()->name}} @endif" csrf_token="{{ csrf_token() }}"></user_login>
     </div>
     </body>
     <script src="{{ asset('/js/app.js') }}"></script>

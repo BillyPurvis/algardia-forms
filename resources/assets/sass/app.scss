@@ -8,6 +8,8 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Animations
+@import "animations";
 html {
   font-family: "Montserrat";
 }
@@ -28,6 +30,11 @@ body {
   max-width: 514px;
   padding: 45px 50px 65px;
   background-color: $navy;
+
+  opacity: 0;
+  @include animation(slideFadeInForm 1s);
+  -webkit-animation-delay: .15s;
+  animation-fill-mode: forwards;
   a {
     cursor: pointer;
   }
@@ -126,4 +133,75 @@ body {
       color: rgba(192, 199, 203, 0.15);
     }
   }
+}
+// General Element CSS
+.gradient-divider {
+  width: 45%;
+  height: 2px;
+  margin: 10px 0 35px;
+  @extend .gradient;
+}
+
+// User Area CSS
+.user-area {
+  h1 {
+    color: #fff;
+    margin: 0;
+    font-weight: 100;
+    font-family: $lato;
+  }
+  button, a {
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 7px;
+    font-family: $lato;
+    display: inline-block;
+    text-decoration: none;
+    border: 2px solid #fff;
+    transition: all .3s ease;
+    background: transparent;
+    &:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+    &.btn-gradient {
+      color: $grey;
+      border: 2px solid $grey;
+      &:hover {
+        color: #fff;
+        background: rgba(0,0,0,0.2);
+      }
+    }
+  }
+  p {
+    font-family: $lato;
+  }
+  h2 {
+    font-size: 32px;
+    margin-top: 0;
+  }
+}
+// Dashboard
+.user-panel {
+  .col-sm-8 {
+    padding-left: 0!important;
+  }
+
+}
+.user-welcome {
+  opacity: 0;
+  @include animation(slideFadeIn 1s);
+  animation-fill-mode: forwards;
+}
+.btn-dash {
+  opacity: 0;
+  @include animation(fadeIn 1s);
+  -webkit-animation-delay: .5s;
+  animation-fill-mode: forwards;
+}
+.user-area-inner {
+  opacity: 0;
+  margin-top: 30px;
+  @include animation(fadeIn 1s);
+  -webkit-animation-delay: 0.8s;
+  animation-fill-mode: forwards;
 }

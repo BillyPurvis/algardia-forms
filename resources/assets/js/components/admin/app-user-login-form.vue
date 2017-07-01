@@ -1,8 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-           <form class="form-horizontal col-xs-6 col-xs-offset-3" role="form" method="POST" action="/api/login">
-               <img src="../../../images/close-icon.png" alt="Close Icon">
+           <form v-if="!userLoggedIn" class="form-horizontal col-xs-6 col-xs-offset-3" role="form" method="POST" action="/api/login">
                <div class="form-group form-title">
                     <h1>Login</h1>
                 </div>
@@ -46,26 +45,23 @@
 </template>
 
 <script>
-    import formAnimations from '../admin/mixins/hello.js';
+    import userMixins from '../admin/mixins/user-mixins.js';
 
     export default {
         mounted() {
             console.log('Component mounted.')
         },
-        mixins: [ formAnimations ],
+        mixins: [ userMixins ], 
         props: [
             'logged_user',
             'csrf_token'
-        ],
-        methods: {
-            userIsLogged: function () {
-                if(this.is_logged_in !== '') {
-                    console.log('blue')
-                }
-            }
-        },
-        mounted: function () {
-            this.userIsLogged();
-        }
+        ]
     }
 </script>
+
+<style lang="scss">
+    form {
+        top: 120px;
+
+    }
+</style>
