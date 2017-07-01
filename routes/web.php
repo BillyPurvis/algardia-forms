@@ -51,7 +51,7 @@ Route::get('api/weather', function(Request $request) {
     $longitude= $request->long;
 
     // Request Weather Data
-    $json_data = file_get_contents("http://api.wunderground.com/api/0e5af2c42173a4e4/geolookup/conditions/q/" .
+    $json_data = file_get_contents("https://api.wunderground.com/api/0e5af2c42173a4e4/geolookup/conditions/q/" .
         $latitude . "," . $longitude . ".json");
     $parsed_json = json_decode($json_data);
 
