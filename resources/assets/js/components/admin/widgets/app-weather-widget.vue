@@ -40,7 +40,9 @@
                 )
             },
             getWeatherData: function () {
-                axios.get("/api/weather/?lat=" + this.Geo.lat + "&long="+ this.Geo.long +"").then(response => {
+                axios.get("api/weather?lat=" + this.Geo.lat + "&long="+ this.Geo.long +"", {
+                    baseURL: process.env.NODE_ENV === 'production' ? 'https://localhost:8000/' : 'http://localhost:8000/'
+                }).then(response => {
                     this.weatherData = response.data;
                     this.setWeatherData();
                 });
