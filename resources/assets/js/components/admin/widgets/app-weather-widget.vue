@@ -1,9 +1,18 @@
 <template>
     <div class="widget panel">
         <div class="widget-inner">
-            <img :src="iconURL" alt="" />
-            <h6>Temp: {{ tempC }}</h6>
-            <h6>City: {{ city }} </h6>
+            <h2>Weather</h2>
+            <p v-if="!weatherData">
+                Loading weather<span class="dot-animation">.</span><span class="dot-animation">.</span><span
+                    class="dot-animation">.</span>
+            </p>
+            <transition name="fade">
+                <div v-show="weatherData" class="widget-data">
+                    <img :src="iconURL" alt="" />
+                    <h6>Temp: {{ tempC }} &#176;C / {{ tempF }} &#176;F</h6>
+                    <h6>City: {{ city }} </h6>
+                </div>
+            </transition>
         </div>
     </div>
 </template>
@@ -12,9 +21,10 @@
     export default {
         data() {
             return {
-                weatherData: {},
+                weatherData: null,
                 city: null,
                 tempC: null,
+                tempF: null,
                 iconURL: "/images/sun.png",
                 Geo: {
                     lat: null,
@@ -40,7 +50,9 @@
                 )
             },
             getWeatherData: function () {
-                axios.get("/api/weather/?lat=" + this.Geo.lat + "&long="+ this.Geo.long +"").then(response => {
+                axios.get("api/weather?lat=" + this.Geo.lat + "&long="+ this.Geo.long +"", {
+                    baseURL: process.env.NODE_ENV === 'production' ? process.env.APP_AXIOSURL : 'http://localhost:8000/'
+                }).then(response => {
                     this.weatherData = response.data;
                     this.setWeatherData();
                 });
@@ -49,6 +61,7 @@
                 console.log('blue');
                 this.city = this.weatherData.location.city;
                 this.tempC = this.weatherData.current_observation.temp_c;
+                this.tempF = this.weatherData.current_observation.temp_f;
             },
             sayHello: function () {
                 console.log('babel');
@@ -62,8 +75,10 @@
     .widget {
         padding: 20px;
         background: #fff;
+        min-height: 211px;
         .widget-inner {
 
         }
     }
+
 </style>

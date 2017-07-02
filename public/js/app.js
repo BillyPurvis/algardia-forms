@@ -2301,13 +2301,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            weatherData: {},
+            weatherData: null,
             city: null,
             tempC: null,
+            tempF: null,
             iconURL: "/images/sun.png",
             Geo: {
                 lat: null,
@@ -2336,7 +2346,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getWeatherData: function getWeatherData() {
             var _this2 = this;
 
-            axios.get("/api/weather/?lat=" + this.Geo.lat + "&long=" + this.Geo.long + "").then(function (response) {
+            axios.get("api/weather?lat=" + this.Geo.lat + "&long=" + this.Geo.long + "", {
+                baseURL:  false ? process.env.APP_AXIOSURL : 'http://localhost:8000/'
+            }).then(function (response) {
                 _this2.weatherData = response.data;
                 _this2.setWeatherData();
             });
@@ -2345,6 +2357,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             console.log('blue');
             this.city = this.weatherData.location.city;
             this.tempC = this.weatherData.current_observation.temp_c;
+            this.tempF = this.weatherData.current_observation.temp_f;
         },
         sayHello: function sayHello() {
             console.log('babel');
@@ -4819,7 +4832,7 @@ exports.push([module.i, "\nform {\n  top: 120px;\n}\n", ""]);
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n.widget[data-v-4ff26fae] {\n  padding: 20px;\n  background: #fff;\n}\n", ""]);
+exports.push([module.i, "\n.widget[data-v-4ff26fae] {\n  padding: 20px;\n  background: #fff;\n  min-height: 211px;\n}\n", ""]);
 
 /***/ }),
 /* 44 */
@@ -32868,12 +32881,30 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "widget panel"
   }, [_c('div', {
     staticClass: "widget-inner"
+  }, [_c('h2', [_vm._v("Weather")]), _vm._v(" "), (!_vm.weatherData) ? _c('p', [_vm._v("\n            Loading weather"), _c('span', {
+    staticClass: "dot-animation"
+  }, [_vm._v(".")]), _c('span', {
+    staticClass: "dot-animation"
+  }, [_vm._v(".")]), _c('span', {
+    staticClass: "dot-animation"
+  }, [_vm._v(".")])]) : _vm._e(), _vm._v(" "), _c('transition', {
+    attrs: {
+      "name": "fade"
+    }
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.weatherData),
+      expression: "weatherData"
+    }],
+    staticClass: "widget-data"
   }, [_c('img', {
     attrs: {
       "src": _vm.iconURL,
       "alt": ""
     }
-  }), _vm._v(" "), _c('h6', [_vm._v("Temp: " + _vm._s(_vm.tempC))]), _vm._v(" "), _c('h6', [_vm._v("City: " + _vm._s(_vm.city) + " ")])])])
+  }), _vm._v(" "), _c('h6', [_vm._v("Temp: " + _vm._s(_vm.tempC) + " °C / " + _vm._s(_vm.tempF) + " °F")]), _vm._v(" "), _c('h6', [_vm._v("City: " + _vm._s(_vm.city) + " ")])])])], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
